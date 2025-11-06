@@ -1,0 +1,6 @@
+durumlarını ve nodeları görmek için
+/home/cassandra/apache-cassandra-4.0.1/bin
+./nodetool -h ::FFFF:127.0.0.1 status
+
+cassandrayı başlatmak için:
+cd /home/cassandra/apache-cassandra-4.0.1/ && bin/cassandra -R
