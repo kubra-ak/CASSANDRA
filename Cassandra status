@@ -1,0 +1,32 @@
+root@cassandrasunucu:/home/cassandra/apache-cassandra-4.0.1/bin# ./nodetool -h ::FFFF:127.0.0.1 status
+Datacenter: DC1
+===============
+Status=Up/Down
+|/ State=Normal/Leaving/Joining/Moving
+--  Address       Load       Tokens  Owns (effective)  Host ID                               Rack 
+DN  IP1             ?          256     0.0%              d1d99ed4-c08f-4033-82d2-9774485c7e90  r1   
+DN  IP2             ?          256     0.0%              f5cfce94-8610-4440-a180-2657a646d603  r1   
+
+Datacenter: dc1
+===============
+Status=Up/Down
+|/ State=Normal/Leaving/Joining/Moving
+--  Address       Load       Tokens  Owns (effective)  Host ID                               Rack 
+UN  IP3          15.81 GiB  256     100.0%            2fa6a67d-d732-4d30-8325-4f0f60501c9d  rack1
+UN  IP4          10.85 GiB  256     100.0%            1ecc1d30-cf38-465c-aaa9-16335022707d  rack1
+
+üstteki IP1 ve IP2 down durumdA. açtıktan sonra load kısmı gelince düzelmiş olacak
+
+
+Çalışıyor hali aşağıdaki gibi:
+
+root@cassandratest4:/home/cassandra/apache-cassandra-4.0.1/bin# ./nodetool -h ::FFFF:127.0.0.1 status
+Datacenter: dc1
+===============
+Status=Up/Down
+|/ State=Normal/Leaving/Joining/Moving
+--  Address       Load       Tokens  Owns (effective)  Host ID                               Rack 
+UN  IP1         8.79 GiB     256     51.0%             d1d99ed4-c08f-4033-82d2-9774485c7e90  rack1
+UN  IP2        16.47 GiB     256     47.2%             f5cfce94-8610-4440-a180-2657a646d603  rack1
+UN  IP3        15.8 GiB      256     52.0%             2fa6a67d-d732-4d30-8325-4f0f60501c9d  rack1
+UN  IP4       10.85 GiB      256     49.8%             1ecc1d30-cf38-465c-aaa9-16335022707d  rack1
